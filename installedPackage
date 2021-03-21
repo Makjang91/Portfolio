@@ -1,0 +1,23 @@
+npm install --save-dev @iconify/react @iconify/icons-mdi
+npm install --save-dev @iconify/react @iconify/icons-teenyicons
+npm install --save-dev @iconify/react @iconify/icons-file-icons
+npm install --save-dev @iconify/react @iconify/icons-logosphp
+npm install --save-dev @iconify/react @iconify/icons-vscode-icons;
+npm install --save-dev @iconify/react @iconify/icons-fluent;
+npm install --save-dev @iconify/react @iconify/icons-simple-icons;
+npm install --save-dev @iconify/react @iconify/icons-logos;
+npm install --save-dev @iconify/react @iconify/icons-dashicons;
+npm install --save-dev @iconify/react @iconify/icons-bx;
+
+npm install react-icons --save
+<List>
+                <ListItem>
+                    <ListItemIcon>
+                    {txt}
+                    </ListItemIcon>{this.props.iconName}
+                    <ListItemText
+                    primary={this.props.name}
+                    secondary={null}
+                    />
+                </ListItem>
+            </List>
