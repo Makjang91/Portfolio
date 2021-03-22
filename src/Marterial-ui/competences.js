@@ -8,10 +8,13 @@ import { SiCplusplus,SiCsharp,SiJava,SiPhp,SiJavascript,SiMysql,SiPostgresql,SiH
 import { render } from '@testing-library/react';
 
 
-const listCompentencesStyles = makeStyles((theme) => ({
-    Contenues: {
-     padding: theme.spacing(0,10)
+const divCompetenceStyle = makeStyles((theme) => ({
+    contenues: {
+        padding: theme.spacing(0,10)
     },
+    listCompetence: {
+        padding: theme.spacing(0,0),
+    }
   }));
 
 const listCompetences = [
@@ -63,31 +66,31 @@ const listCompetences = [
 ]
 
 class Competence extends React.Component{
+    
     render() {
-        var Icon = this.props.iconName;
-        var Component = Icon;
-        return <Component />;
+        const Icon = this.props.iconName;
+        return <List className={this.props.mt}>
+                    <ListItem>
+                        <ListItemIcon>
+                            <Icon/>
+                        </ListItemIcon>
+                        <ListItemText
+                            primary={this.props.name}
+                            secondary={null}
+                        />
+                    </ListItem>
+                </List>
     }
 }
-
-function test(props){
-    const Icon = 'SiPhp';
-    return <Icon/>;
-}
-
 export default function competences(){
-    const classes = listCompentencesStyles();
-    
+    const classes = divCompetenceStyle();
+    const smt = classes.listCompetence;
     return (
-        <div className={classes.Contenues}>
+        <div className={classes.contenues}>
             {listCompetences.map(c => {
-                let txt = c.iconName;
-                let Compo = txt;
                 return (
                     <div>
-                        <Compo />
-                        {React.createElement(c.iconName)}
-                        <Competence key={c.key} iconName={c.iconName}/>
+                        <Competence key={c.key} iconName={c.iconName} name={c.name} mt={smt}/>
                     </div>
                 )
             })
