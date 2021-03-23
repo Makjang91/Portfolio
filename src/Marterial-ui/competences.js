@@ -26,7 +26,7 @@ const listCompetences = [
     {
         'id' : 2,
         'iconName' : SiCsharp,
-        'name' : 'C#',
+        'name' : 'C# (Unity)',
     },
     {
         'id' : 3, 
@@ -36,12 +36,12 @@ const listCompetences = [
     {
         'id' : 4,
         'iconName' : SiPhp,
-        'name' : 'php',
+        'name' : 'php (Symfony)',
     },
     {
         'id' : 5,
         'iconName' : SiJavascript,
-        'name' : 'Javascript',
+        'name' : 'Javascript (React)',
     },
     {
         'id' : 6,

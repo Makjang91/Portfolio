@@ -1,7 +1,9 @@
 import './App.css';
 
-import Appbar from './Marterial-ui/appbar'
-import AfficheCompetences from './Marterial-ui/competences'
+import Appbar from './Marterial-ui/appbar';
+import AfficheCompetences from './Marterial-ui/competences';
+import Red from './Projets/Red';
+import ClientManagementSystme from './Projets/ClientManagement_React'
 
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
@@ -20,6 +22,7 @@ const theme = createMuiTheme({
   }
 });
 
+
 const useStyles = makeStyles((theme) => ({
   Contenues: {
    padding: theme.spacing(0,10)
@@ -27,33 +30,33 @@ const useStyles = makeStyles((theme) => ({
   title: {
     margin: theme.spacing(4, 0, 4),
   },
+  section1: {
+    height: "70rem",
+    width: "100%",
+    paddingTop: 5,
+    backgroundColor: "#90dcfb"
+  },
+  section2: {
+    height: "80rem",
+    width: "100%",
+    paddingTop: 5,
+    backgroundColor: "#00FFFF"
+  },
+  
 }));
-
-const section1 = {
-  height: "60rem",
-  width: "100%",
-  paddingTop: 5,
-  backgroundColor: "#90dcfb"
-};
-
-const section2 = {
-  height: "100rem",
-  width: "100%",
-  paddingTop: 5,
-  backgroundColor: "#00FFFF"
-};
 
 function App() {
   const classes = useStyles();
 
-  const appbar = <Appbar /> // {appbar} into div
-  const afficheCompetences = <AfficheCompetences />
+  const appbar = <Appbar />; // {appbar} into div
+  const afficheCompetences = <AfficheCompetences />;
+  const red = <Red />;
+  const clientManagementSystme = <ClientManagementSystme />
 
 
   return (
     <div className="App">
-
-        <div style={section1}>
+        <div className={classes.section1}>
           <Grid container justify="center" bgcolor="black">
             <Box mt={40} >
               <div>
@@ -66,7 +69,7 @@ function App() {
             </Box>
           </Grid>
         </div>
-        <div style={section2}>
+        <div className={classes.section2}>
           <Grid container justify="center" spacing={0}>
             <Grid item xs={12} justify="center" alignItems="center" >
               <Box border={0} mt={10} m="auto" borderRadius="50%" color="black" overflow="hidden" width="25%" maxWidth="20em">
@@ -110,6 +113,13 @@ function App() {
             </Grid>
           </Grid>
         </div>
+        <div className={classes.section1}>
+          {clientManagementSystme}
+        </div>
+        <div >
+            {red}
+        </div>
+        
     </div>
   );
 }
