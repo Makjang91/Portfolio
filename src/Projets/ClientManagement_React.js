@@ -7,9 +7,20 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 import { SiCsswizardry, SiHtml5, SiJavascript, SiMariadb, SiReact } from "react-icons/si";
 
+const fonctionnalites = [
+    {
+        'pri': "Ajout des clients avec un modal",
+        'sec': ""
+    },
+    {
+        'pri': "Efface des clients",
+        'sec': ""
+    },
+]
 const listTechs = [
     {
         'id': 1,
@@ -43,7 +54,7 @@ class Tech extends React.Component{
         const Icon = this.props.iconName;
         return (
             <Grid item >
-                <Icon/> {this.props.name}
+                <Icon size={32}/> <br/>{this.props.name}
             </Grid>
         )
     }
@@ -55,13 +66,13 @@ class ClientManagementSystme extends React.Component {
             <div>
                 <Grid container justify="center">
                     <Box mt={5}>
-                        <Typography  variant="h1" component="h1">
+                        <Typography  variant="h3" component="h3">
                             Client Management System
                         </Typography>
                     </Box>
                 </Grid>
                 <Box mt={10}>
-                    <Grid container>
+                    <Grid container style={{textAlign:"center"}}>
                         <Grid item xs={6}>
                             <Typography  variant="h5" component="h5">
                                 Description
@@ -69,41 +80,57 @@ class ClientManagementSystme extends React.Component {
                             <Box mt={3}>
                                 <Typography variant="body1">
                                     Projet personnel réalisé pour apprendre le Framework React<br/>
-                                    Ce site web permet de manipuler ajout, efface et modification.
+                                    Ce site est une application de gérer des clients avec l'interaction de base de données.<br/>
+                                    Il permet de manipuler l'ajout et l'efface des clients.<br/>
                                 </Typography>
-
-                            </Box>
-                            <Box mt={10}>
-                                <Typography  variant="h5" component="h5">
-                                    Fonctionnalités
-                                </Typography>
-                                <List>
-                                    
-                                </List>
                             </Box>
                         </Grid>
                         <Grid item xs={6}>
                             <Typography  variant="h5" component="h5">
-                                Tecniques
+                                Fonctionnalités
                             </Typography>
-                            <Box mt={3}>
-                                <Grid 
-                                    container
-                                    direction="row"
-                                    justify="center"
-                                    alignItems="flex-start"
-                                    spacing={2}
-                                >
-                                    {listTechs.map(t => {
+                            <List >
+                                    {fonctionnalites.map(f => {
                                         return (
-                                            <Tech key={t.key} iconName={t.iconName} name={t.name}/>
+                                            <ListItem>
+                                                <ListItemIcon>
+                                                    <FiberManualRecordIcon />
+                                                </ListItemIcon>
+                                                <ListItemText
+                                                    primary={f.pri}
+                                                    secondary={f.sec}
+                                                />
+                                            </ListItem>
                                         )
                                     })}
-                                </Grid>
-                            </Box>
+                                </List>
                         </Grid>
                     </Grid>
                 </Box>
+                <Grid container style={{textAlign:"center"}}>
+                    <Grid item xs={12}>
+                        <Box mb={5} mt={5}>
+                            <Typography  variant="h5" component="h5">
+                                Tecniques
+                            </Typography>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Grid 
+                            container
+                            direction="row"
+                            justify="center"
+                            alignItems="center"
+                            spacing={10}
+                        >
+                            {listTechs.map(t => {
+                                return (
+                                    <Tech key={t.key} iconName={t.iconName} name={t.name}/>
+                                )
+                            })}
+                        </Grid>
+                    </Grid>
+                </Grid>
                 
             </div>
         )

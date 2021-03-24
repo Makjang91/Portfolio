@@ -14,6 +14,7 @@ import ReactPlayer from "react-player"
 
 import RedBackGround from '../img/Red_image.png'
 import { withStyles  } from '@material-ui/core/styles';
+import { spacing } from '@material-ui/system';
 
 const listTechs = [
     {
@@ -57,8 +58,8 @@ class Tech extends React.Component{
     render() {
         const Icon = this.props.iconName;
         return (
-            <Grid item >
-                <Icon/> {this.props.name}
+            <Grid item style={{paddingLeft:"1rem", paddingRight:"1rem"}}>
+                <Icon size={32} /> <br/> {this.props.name}
             </Grid>
         )
     }
@@ -71,7 +72,7 @@ class Red extends React.Component{
         const { classes } = this.props;
 
         return (
-                <div className={classes.section_img}>
+                <div>
                     <Grid container justify="center">
                         <Box mt={5}>
                             <Typography  variant="h1" component="h1">
@@ -80,7 +81,7 @@ class Red extends React.Component{
                         </Box>
                     </Grid>
                     <Box mt={10}>
-                        <Grid container spacing={0}>
+                        <Grid container style={{textAlign:"center"}}>
                             <Grid item xs={6}>
                                 <Typography  variant="h5" component="h5">
                                     Description
@@ -92,54 +93,64 @@ class Red extends React.Component{
                                         Red entre dans un immeuble et se bat avec ses mains et une pistolet. <br/>
                                     </Typography>
                                 </Box>
-                                <Box mt={10}>
-                                    <Typography  variant="h5" component="h5">
-                                        Fonctionnalités
-                                    </Typography>
-                                    <List>
-                                        {fonctionnalites.map(f => {
-                                            return (
-                                                <ListItem>
-                                                    <ListItemIcon>
-                                                        <FiberManualRecordIcon />
-                                                    </ListItemIcon>
-                                                    <ListItemText
-                                                        primary={f.pri}
-                                                        secondary={f.sec}
-                                                    />
-                                                </ListItem>
-                                            )
-                                        })}
-                                    </List>
-                                </Box>
+                                
                             </Grid>
                             <Grid item xs={6}>
                                 <Typography  variant="h5" component="h5">
-                                    Tecniques
+                                    Fonctionnalités
                                 </Typography>
-                                <Box mt={3}>
-                                    <Grid 
-                                        container
-                                        direction="row"
-                                        justify="center"
-                                        alignItems="flex-start"
-                                        spacing={2}
-                                    >
-                                        {listTechs.map(t => {
-                                            return (
-                                                <Tech key={t.key} iconName={t.iconName} name={t.name}/>
-                                            )
-                                        })}
-                                    </Grid>
-                                    <ReactPlayer
-                                        style={{'padding-top': '3rem'}}
-                                        width={"38rem"}    
-                                        url="https://www.youtube.com/watch?v=SPTtDNhM-Ko"
-                                    />
-                                </Box>
+                                <List >
+                                    {fonctionnalites.map(f => {
+                                        return (
+                                            <ListItem>
+                                                <ListItemIcon>
+                                                    <FiberManualRecordIcon />
+                                                </ListItemIcon>
+                                                <ListItemText
+                                                    primary={f.pri}
+                                                    secondary={f.sec}
+                                                />
+                                            </ListItem>
+                                        )
+                                    })}
+                                </List>
                             </Grid>
                         </Grid>
                     </Box>
+                    <Grid container style={{textAlign:"center"}}>
+                        <Grid item xs={12}>
+                            <Box mb={5} mt={5}>
+                                <Typography  variant="h5" component="h5">
+                                    Tecniques
+                                </Typography>
+                            </Box>
+                            <Box mt={3}>
+                                <Grid 
+                                    container
+                                    direction="row"
+                                    justify="center"
+                                    alignItems="flex-start"
+                                >
+                                    {listTechs.map(t => {
+                                        return (
+                                            <Tech key={t.key} iconName={t.iconName} name={t.name}/>
+                                        )
+                                    })}
+                                </Grid>
+                                <Grid container justify="center">
+                                    <Box mb={5}>
+                                        <ReactPlayer
+                                            style={{'padding-top': '3rem'}}
+                                            width={"38rem"}    
+                                            url="https://www.youtube.com/watch?v=SPTtDNhM-Ko"
+                                        />
+                                    </Box>
+                                </Grid>
+                            </Box>
+                        </Grid>
+                            
+                    </Grid>
+                    
                 </div>
         )
     }
