@@ -17,6 +17,7 @@ import { Parallax } from 'react-parallax';
 import photo from './img/photo.jpg';
 import fond_universe from './img/universe.jpg';
 import fond_mountain from './img/mountain.jpg';
+import { Helmet } from 'react-helmet'
 
 const theme = createMuiTheme({
   palette: {
@@ -60,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles();
 
+  const title = "YUN's portfolio";
   const appbar = <Appbar />; // {appbar} into div
   const afficheCompetences = <AfficheCompetences />;
   const red = <Red />;
@@ -68,6 +70,9 @@ function App() {
 
   return (
     <div>
+      <Helmet>
+        <title>{ title }</title>
+      </Helmet>
       <Parallax bgImage={fond_universe}>
         <div className={classes.section1}>
           <Grid container justify="center" className={classes.inlineStyle1}>
