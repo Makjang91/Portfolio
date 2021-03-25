@@ -15,8 +15,8 @@ import Box from '@material-ui/core/Box';
 import { Parallax } from 'react-parallax';
 
 import photo from './img/photo.jpg';
-import fond_universe from './img/universe.jpg';
-import fond_mountain from './img/mountain.jpg';
+import fond_intro from './img/pexels-bich-tran-669996.jpg';
+import fond_first from './img/pexels-jess-bailey-designs-743986.jpg';
 
 const theme = createMuiTheme({
   palette: {
@@ -52,6 +52,10 @@ const useStyles = makeStyles((theme) => ({
   },
   inlineStyle2Text: {
     textAlign: 'center',
+  },
+  titleText: {
+    color: 'white',
+    'text-shadow': '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
   }
   
 }));
@@ -68,10 +72,10 @@ function App() {
 
   return (
     <div>
-      <Parallax bgImage={fond_universe}>
+      <Parallax bgImage={fond_intro}>
         <div className={classes.section1}>
           <Grid container justify="center" className={classes.inlineStyle1}>
-              <Typography  variant="h3" component="h3">
+              <Typography  variant="h3" component="h3" className={classes.titleText}>
                 Bienvenu<br/>
                 Portfolio de YUN Seunguk
                 
@@ -120,7 +124,7 @@ function App() {
           </Grid>
         </Grid>
       </div>
-      <Parallax bgImage={fond_mountain}>
+      <Parallax bgImage={fond_first}>
         <div className={classes.section1}>
           {clientManagementSystme}
         </div>

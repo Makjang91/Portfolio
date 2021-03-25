@@ -74,7 +74,7 @@ class Competence extends React.Component{
         return <List className={this.props.mt}>
                     <ListItem>
                         <ListItemIcon>
-                            <Icon size={32}/>
+                            <Icon size={32} style={{ fill: 'black' }}/>
                         </ListItemIcon>
                         <ListItemText
                             primary={this.props.name}
@@ -98,7 +98,7 @@ export default function competences(){
             right.push(<Competence iconName={c.iconName} name={c.name} mt={smt}/>);
         }
     })
-    console.log(typeof left);
+
     return (
         <div className={classes.contenues}>
             <Grid container>
