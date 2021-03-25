@@ -8,6 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import Button from '@material-ui/core/Button';
 
 import { SiCsswizardry, SiHtml5, SiJavascript, SiMariadb, SiReact } from "react-icons/si";
 
@@ -130,6 +131,13 @@ class ClientManagementSystme extends React.Component {
                             })}
                         </Grid>
                     </Grid>
+                </Grid>
+                <Grid container justify="center">
+                    <Box mt={5}>
+                        <Typography variant="h5">
+                            <a href="/js">lien vers le site</a>
+                        </Typography>
+                    </Box>
                 </Grid>
                 
             </div>

@@ -20,7 +20,7 @@ class footer extends React.Component{
                     <Grid item style={{paddingLeft:"1rem", paddingRight:"1rem"}}>
                         <Button variant="contained" href="https://github.com/Makjang91">
                             <SiGithub size={40}/>
-                    </Button>
+                        </Button>
                     </Grid>
                 </Grid>
                 <Box mt={3} style={{ textAlign: 'center'}}>
