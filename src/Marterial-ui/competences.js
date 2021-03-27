@@ -74,7 +74,7 @@ class Competence extends React.Component{
         return <List className={this.props.mt}>
                     <ListItem>
                         <ListItemIcon>
-                            <Icon size={32} style={{ fill: 'black' }}/>
+                            <Icon size={32} style={{ fill: '#3c3c3b' }}/>
                         </ListItemIcon>
                         <ListItemText
                             primary={this.props.name}

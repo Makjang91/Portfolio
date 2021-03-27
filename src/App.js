@@ -10,7 +10,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Grid from "@material-ui/core/Grid";
-import { makeStyles,createMuiTheme, MuiThemeProvider  } from '@material-ui/core/styles';
+import { makeStyles,createMuiTheme, ThemeProvider  } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import { Parallax } from 'react-parallax';
 
@@ -19,13 +19,23 @@ import fond_intro from './img/pexels-bich-tran-669996.jpg';
 import fond_first from './img/pexels-jess-bailey-designs-743986.jpg';
 import {Helmet} from "react-helmet";
 
-const theme = createMuiTheme({
-  palette: {
-    background: {
-      default: '#9adcfb',
-    },
-  }
+const titleFontTheme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      'Open Sans',
+      'sans-serif',
+    ].join(','),
+  },
 });
+const textFontTheme = createMuiTheme({
+  typography: {
+    fontFamily: [
+      'Open Sans',
+      'sans-serif',
+    ].join(','),
+  },
+});
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -34,6 +44,10 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     margin: theme.spacing(4, 0, 4),
+  },
+  frontpage: {
+    height: "60rem",
+    background: 'linear-gradient(to right, #0f2027, #203a43, #2c5364)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   },
   section1: {
     height: "60rem",
@@ -44,19 +58,21 @@ const useStyles = makeStyles((theme) => ({
     width: "100%"
   },
   inlineStyle1: {
-    'padding-top': '20rem',
-    textAlign: 'center',
+    top: '50%',
+    transform: 'translate(0%, 500%)',
   },
   inlineStyle2Title: {
-    'padding-top': '10rem',
+    'padding-top': '4rem',
     textAlign: 'center',
   },
   inlineStyle2Text: {
     textAlign: 'center',
   },
+  texts: {
+    color: '#3c3c3b',
+  },
   titleText: {
     color: 'white',
-    'text-shadow': '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000',
   }
   
 }));
@@ -73,58 +89,65 @@ function App() {
   const footer = <Footer />
 
   return (
-    <div>
+    <div className={classes.texts}>
       <Helmet>
         <title>{ title }</title>
       </Helmet>
-      <Parallax bgImage={fond_intro}>
-        <div className={classes.section1}>
-          <Grid container justify="center" className={classes.inlineStyle1}>
-              <Typography  variant="h3" component="h3" className={classes.titleText}>
-                Bienvenu<br/>
-                Portfolio de YUN Seunguk
-                
-              </Typography>
-          </Grid>
+      <div className={classes.frontpage}>
+        <Grid container justify='center' className={classes.inlineStyle1}>
+          <ThemeProvider theme={titleFontTheme}>
+            <Typography  variant="h2" component="h2" className={classes.titleText}>
+              Portfolio de YUN Seunguk
+            </Typography>
+          </ThemeProvider>
+        </Grid>
 
-        </div>
-      </Parallax>
+      </div>
       <div className={classes.section1}>
         <Grid container className={classes.inlineStyle2Title}>
           <Grid item xs={12} >
             <Box mb={20} mt={5}>
-              <Typography variant="h5">
-                Bonjour, je m'appelle YUN Seunguk
-              </Typography>
+              <ThemeProvider theme={titleFontTheme}>
+                <Typography variant="h5">
+                  Bonjour, je m'appelle Seunguk YUN
+                </Typography>
+              </ThemeProvider>
             </Box>
           </Grid>
         </Grid>
         <Grid container justify="center" className={classes.inlineStyle2Text}>
           <Grid item id="presentation" xs={6} >
             <Box>
-              <Typography variant="h4">
-                Presentation
-              </Typography>
+              <ThemeProvider theme={titleFontTheme}>
+                <Typography variant="h4">
+                  Qui suis-je ?
+                </Typography>
+              </ThemeProvider>
             </Box>
             <Box mt={5}>
-              <Typography variant="body1">
-                Je suis étudiant de Licence Informatique à l'université Lyon 1 <br/>
-                Je suis venu en France en 2015 pour découvrir la vie en France<br/>
-                J'ai étudié le francais depuis, j'ai commencé à étudier la mécanique<br/>
-                Pendant cette licence, j'avais un cours de programation, ça m'a tellement plu !<br/>
-                Donc j'ai décidé de réorienter en informatique.<br/>
-                <br/>
-                Je cherche actuallement un stage pour la fin d'étude de licence
-              </Typography>
+              <ThemeProvider theme={textFontTheme}>
+                <Typography variant="body1">
+                  Je suis étudiant de Licence Informatique à l'université Lyon 1.<br/>
+                  Je suis arrivé en France en 2015 pour découvrir la vie en France.<br/>
+                  J'ai étudié le francais puis j'ai commencé par étudier la Mécanique en licence.<br/>
+                  Pendant cette licence, j'ai eu un cours de programmation qui m'a particulièrement plu.<br/>
+                  J'ai donc décidé de me réorienter en licence d'Informatique.<br/>
+                  <br/>
+                  Je cherche actuellement un stage de fin de licence.
+                </Typography>
+              </ThemeProvider>
             </Box>
           </Grid>
           <Grid item id="presentation" xs={6} >
-            
-            <Typography variant="h4" className={classes.inlineStyle2Text}>
-              Compétences
-            </Typography>
+            <ThemeProvider theme={titleFontTheme}>
+              <Typography variant="h4" className={classes.inlineStyle2Text}>
+                Mes Compétences informatiques
+              </Typography>
+            </ThemeProvider>
             <Box mt={5}>
-              {afficheCompetences}
+              <ThemeProvider theme={textFontTheme}>
+               {afficheCompetences}
+              </ThemeProvider>
             </Box>
           </Grid>
         </Grid>

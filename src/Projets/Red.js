@@ -15,6 +15,24 @@ import ReactPlayer from "react-player"
 import RedBackGround from '../img/Red_image.png'
 import { withStyles  } from '@material-ui/core/styles';
 import { spacing } from '@material-ui/system';
+import { createMuiTheme, ThemeProvider  } from '@material-ui/core/styles';
+
+const titleFontTheme = createMuiTheme({
+    typography: {
+      fontFamily: [
+        'Open Sans',
+        'sans-serif',
+      ].join(','),
+    },
+  });
+  const textFontTheme = createMuiTheme({
+    typography: {
+      fontFamily: [
+        'Open Sans',
+        'sans-serif',
+      ].join(','),
+    },
+  });
 
 const listTechs = [
     {
@@ -31,16 +49,16 @@ const listTechs = [
 
 const fonctionnalites = [
     {
-        'pri': "Mouvement",
-        'sec': "Toggle marcher/courir, Viser avec le souris et Arme:Poing/Pistol" 
+        'pri': "Mouvement du personnage dirigé par le clavier et la souris du joueur",
+        'sec': "Toggle marcher/courir avec le clavier, viser avec la souris et zction de l'arme (Poing/Pistolet) avec le clavier" 
     },
     {
-        'pri': "interaction avec les ennemis",
-        'sec': "patrouille, Détection, Suivre, Attaque, Alerter ses collègues",
+        'pri': "Interaction avec les ennemis",
+        'sec': "Les annemis patrouillent sur un chemin défini, détectent, quivent, attaquent le joueur et alertent leurs collègues",
     },
     {
         'pri': "Interaction avec les objets",
-        'sec': "S'appoujipir, Se cacher et Ouvrir une porte"
+        'sec': "Le personnage peut se cacher derrière des boîtes ou dans un placard et ouvrir une porte."
     },
 ];
 
@@ -59,7 +77,7 @@ class Tech extends React.Component{
         const Icon = this.props.iconName;
         return (
             <Grid item style={{paddingLeft:"1rem", paddingRight:"1rem"}}>
-                <Icon size={32} /> <br/> {this.props.name}
+                <Icon size={32} style={{ fill: '#3c3c3b' }}/> <br/> {this.props.name}
             </Grid>
         )
     }
@@ -75,42 +93,53 @@ class Red extends React.Component{
                 <div>
                     <Grid container justify="center">
                         <Box mt={5}>
-                            <Typography  variant="h1" component="h1">
-                                Red
-                            </Typography>
+                            <ThemeProvider theme={titleFontTheme}>
+                                <Typography  variant="h1" component="h1">
+                                    Red
+                                </Typography>
+                            </ThemeProvider>
                         </Box>
                     </Grid>
                     <Box mt={10}>
                         <Grid container style={{textAlign:"center"}}>
                             <Grid item xs={6}>
-                                <Typography  variant="h5" component="h5">
-                                    Description
-                                </Typography>
-                                <Box mt={3}>
-                                    <Typography variant="body1">
-                                        Red est un jeu vidéo réalisé comme un projet de groupe pour la fin d'étude.<br/>
-                                        Il est un jeu de platform. Il est fait par Unity <br/>
-                                        Red entre dans un immeuble et se bat avec ses mains et une pistolet. <br/>
+                                <ThemeProvider theme={titleFontTheme}>
+                                    <Typography  variant="h5" component="h5">
+                                        Description
                                     </Typography>
+                                </ThemeProvider>
+                                <Box mt={3}>
+                                    <ThemeProvider theme={textFontTheme}>
+                                        <Typography variant="body1">
+                                            Red est un jeu vidéo réalisé pour un projet de fin d'étude.<br/>
+                                            C'est un jeu de plateforme. Il est réalisé via Unity. <br/>
+                                            Red (le personnage principal) entre dans un immeuble et <br/>
+                                            se bat avec ses mains et un pistolet contre des ennemis programmés. <br/>
+                                        </Typography>
+                                    </ThemeProvider>
                                 </Box>
                                 
                             </Grid>
                             <Grid item xs={6}>
-                                <Typography  variant="h5" component="h5">
-                                    Fonctionnalités
-                                </Typography>
+                                <ThemeProvider theme={titleFontTheme}>
+                                    <Typography  variant="h5" component="h5">
+                                        Fonctionnalités
+                                    </Typography>
+                                </ThemeProvider>
                                 <List >
                                     {fonctionnalites.map(f => {
                                         return (
-                                            <ListItem>
-                                                <ListItemIcon>
-                                                    <FiberManualRecordIcon />
-                                                </ListItemIcon>
-                                                <ListItemText
-                                                    primary={f.pri}
-                                                    secondary={f.sec}
-                                                />
-                                            </ListItem>
+                                            <ThemeProvider theme={textFontTheme}>
+                                                <ListItem>
+                                                    <ListItemIcon>
+                                                        <FiberManualRecordIcon />
+                                                    </ListItemIcon>
+                                                    <ListItemText
+                                                        primary={f.pri}
+                                                        secondary={f.sec}
+                                                    />
+                                                </ListItem>
+                                            </ThemeProvider>
                                         )
                                     })}
                                 </List>
@@ -120,23 +149,27 @@ class Red extends React.Component{
                     <Grid container style={{textAlign:"center"}}>
                         <Grid item xs={12}>
                             <Box mb={5} mt={5}>
-                                <Typography  variant="h5" component="h5">
-                                    Tecniques
-                                </Typography>
+                                <ThemeProvider theme={titleFontTheme}>
+                                    <Typography  variant="h5" component="h5">
+                                        Compétences techniques utilisées
+                                    </Typography>
+                                </ThemeProvider>
                             </Box>
                             <Box mt={3}>
-                                <Grid 
-                                    container
-                                    direction="row"
-                                    justify="center"
-                                    alignItems="flex-start"
-                                >
-                                    {listTechs.map(t => {
-                                        return (
-                                            <Tech key={t.key} iconName={t.iconName} name={t.name}/>
-                                        )
-                                    })}
-                                </Grid>
+                                <ThemeProvider theme={textFontTheme}>
+                                    <Grid 
+                                        container
+                                        direction="row"
+                                        justify="center"
+                                        alignItems="flex-start"
+                                    >
+                                        {listTechs.map(t => {
+                                            return (
+                                                <Tech key={t.key} iconName={t.iconName} name={t.name}/>
+                                            )
+                                        })}
+                                    </Grid>
+                                </ThemeProvider>
                                 <Grid container justify="center">
                                     <Box mb={5}>
                                         <ReactPlayer
