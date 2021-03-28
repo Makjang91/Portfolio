@@ -15,9 +15,10 @@ import Box from '@material-ui/core/Box';
 import { Parallax } from 'react-parallax';
 
 import photo from './img/photo.jpg';
-import fond_intro from './img/pexels-bich-tran-669996.jpg';
+import fond_intro from './img/89-1.jpg';
 import fond_first from './img/pexels-jess-bailey-designs-743986.jpg';
 import {Helmet} from "react-helmet";
+import Divider from '@material-ui/core/Divider';
 
 const titleFontTheme = createMuiTheme({
   typography: {
@@ -50,12 +51,23 @@ const useStyles = makeStyles((theme) => ({
     background: 'linear-gradient(to right, #0f2027, #203a43, #2c5364)', /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   },
   section1: {
-    height: "60rem",
-    width: "100%"
+    width: "100%",
+    'padding-bottom': '10rem',
+    'padding-top': '2rem',
   },
-  section2: {
+  sectionProjet: {
+    width: "100%",
+    'padding-bottom': '10rem',
+    'padding-top': '4rem',
+  },
+  sectionIntroPicture: {
     height: "15rem",
-    width: "100%"
+    'background-color': 'rgba(0, 0, 0, 0.5)',
+  },
+  footer: {
+    height: "15rem",
+    width: "100%",
+    'padding-top': '3rem',
   },
   inlineStyle1: {
     top: '50%',
@@ -69,11 +81,24 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
   },
   texts: {
+    backgroundColor: '#F8F8FF',
     color: '#3c3c3b',
   },
   titleText: {
     color: 'white',
-  }
+  },
+  titreTextDivider: {
+    width: '6rem',
+    height: '0.1rem',
+    'border-top': '4rem rounded #bbb',
+    'border-radius': '15%',
+    margin: 'auto',
+  },
+  projetDivider: {
+    width: '25rem',
+    height: '0.1rem',
+    margin: 'auto',
+  },
   
 }));
 
@@ -89,7 +114,7 @@ function App() {
   const footer = <Footer />
 
   return (
-    <div className={classes.texts}>
+    <div className={classes.texts} bgImageAlt={'intro_picture'}>
       <Helmet>
         <title>{ title }</title>
       </Helmet>
@@ -103,15 +128,19 @@ function App() {
         </Grid>
 
       </div>
+      
       <div className={classes.section1}>
         <Grid container className={classes.inlineStyle2Title}>
           <Grid item xs={12} >
-            <Box mb={20} mt={5}>
+            <Box mb={10} xs={12}>
               <ThemeProvider theme={titleFontTheme}>
                 <Typography variant="h5">
                   Bonjour, je m'appelle Seunguk YUN
                 </Typography>
               </ThemeProvider>
+            </Box>
+            <Box mb={10}>
+              <Divider className={classes.titreTextDivider}/>
             </Box>
           </Grid>
         </Grid>
@@ -145,22 +174,33 @@ function App() {
               </Typography>
             </ThemeProvider>
             <Box mt={5}>
-              <ThemeProvider theme={textFontTheme}>
+              <ThemeProvider theme={textFontTheme} >
                {afficheCompetences}
               </ThemeProvider>
             </Box>
           </Grid>
         </Grid>
       </div>
-      <Parallax bgImage={fond_first}>
-        <div className={classes.section1}>
-          {clientManagementSystme}
+      <div style={{height: '9rem', backgroundColor: '#2c5364'}}>
+        <ThemeProvider theme={titleFontTheme}>
+          <Typography variant="h4" className={classes.inlineStyle2Text} style={{padding: '3rem', color: '#F8F8FF'}}>
+            Mes projets
+          </Typography>
+        </ThemeProvider>
+      </div>
+      <Parallax bgImage={fond_intro} strength={500} >
+        <div className={classes.sectionIntroPicture}>
+
         </div>
       </Parallax>
-      <div >
+      <div className={classes.sectionProjet}>
+        {clientManagementSystme}
+      </div>
+      <Divider className={classes.projetDivider}/>
+      <div className={classes.sectionProjet}>
           {red}
       </div>
-      <div className={classes.section2} style={{backgroundColor: 'rgba(0,0,0,0.15)'}}>
+      <div className={classes.footer} style={{backgroundColor: '#0f2027'}}>
         {footer}
       </div>
     </div>

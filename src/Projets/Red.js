@@ -92,7 +92,7 @@ class Red extends React.Component{
         return (
                 <div>
                     <Grid container justify="center">
-                        <Box mt={5}>
+                        <Box>
                             <ThemeProvider theme={titleFontTheme}>
                                 <Typography  variant="h1" component="h1">
                                     Red
@@ -104,7 +104,7 @@ class Red extends React.Component{
                         <Grid container style={{textAlign:"center"}}>
                             <Grid item xs={6}>
                                 <ThemeProvider theme={titleFontTheme}>
-                                    <Typography  variant="h5" component="h5">
+                                    <Typography  variant="h4" component="h4">
                                         Description
                                     </Typography>
                                 </ThemeProvider>
@@ -122,7 +122,7 @@ class Red extends React.Component{
                             </Grid>
                             <Grid item xs={6}>
                                 <ThemeProvider theme={titleFontTheme}>
-                                    <Typography  variant="h5" component="h5">
+                                    <Typography  variant="h4" component="h4">
                                         Fonctionnalités
                                     </Typography>
                                 </ThemeProvider>
@@ -150,7 +150,7 @@ class Red extends React.Component{
                         <Grid item xs={12}>
                             <Box mb={5} mt={5}>
                                 <ThemeProvider theme={titleFontTheme}>
-                                    <Typography  variant="h5" component="h5">
+                                    <Typography  variant="h4" component="h4">
                                         Compétences techniques utilisées
                                     </Typography>
                                 </ThemeProvider>

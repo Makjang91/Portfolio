@@ -82,7 +82,7 @@ class Tech extends React.Component{
 class ClientManagementSystme extends React.Component {
     render() {
         return (
-            <div style={{ 'padding-top': '4rem', backgroundColor: '#F8F8FF'}}>
+            <div>
                 <Grid container justify="center">
                     <Box mt={5}>
                         <ThemeProvider theme={titleFontTheme}>
@@ -96,7 +96,7 @@ class ClientManagementSystme extends React.Component {
                     <Grid container style={{textAlign:"center"}}>
                         <Grid item xs={6}>
                             <ThemeProvider theme={titleFontTheme}>
-                                <Typography  variant="h5" component="h5">
+                                <Typography  variant="h4" component="h4">
                                     Description
                                 </Typography>
                             </ThemeProvider>
@@ -112,7 +112,7 @@ class ClientManagementSystme extends React.Component {
                         </Grid>
                         <Grid item xs={6}>
                             <ThemeProvider theme={titleFontTheme}>
-                                <Typography  variant="h5" component="h5">
+                                <Typography  variant="h4" component="h4">
                                     Fonctionnalités
                                 </Typography>
                             </ThemeProvider>
@@ -140,7 +140,7 @@ class ClientManagementSystme extends React.Component {
                     <Grid item xs={12}>
                         <Box mb={5} mt={5}>
                             <ThemeProvider theme={titleFontTheme}>
-                                <Typography  variant="h5" component="h5">
+                                <Typography  variant="h4" component="h4">
                                     Compétences techniques utilisées
                                 </Typography>
                             </ThemeProvider>
@@ -168,7 +168,7 @@ class ClientManagementSystme extends React.Component {
                     <Box mt={5}>
                         <ThemeProvider theme={titleFontTheme}>
                             <Typography variant="h5">
-                                <a href="/js">Allez voir le site !</a>
+                                <Button href="/js">Allez voir le site !</Button>
                             </Typography>
                         </ThemeProvider>
                     </Box>
