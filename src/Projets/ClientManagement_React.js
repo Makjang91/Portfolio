@@ -86,7 +86,7 @@ class ClientManagementSystme extends React.Component {
                 <Grid container justify="center">
                     <Box mt={5}>
                         <ThemeProvider theme={titleFontTheme}>
-                            <Typography  variant="h3" component="h3">
+                            <Typography  variant="h2" component="h2">
                                 Client Management System
                             </Typography>
                         </ThemeProvider>
@@ -168,7 +168,7 @@ class ClientManagementSystme extends React.Component {
                     <Box mt={5}>
                         <ThemeProvider theme={titleFontTheme}>
                             <Typography variant="h5">
-                                <Button href="/js">Allez voir le site !</Button>
+                                <Button variant="contained" href="/js">Allez voir le site !</Button>
                             </Typography>
                         </ThemeProvider>
                     </Box>

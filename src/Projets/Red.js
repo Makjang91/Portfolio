@@ -94,7 +94,7 @@ class Red extends React.Component{
                     <Grid container justify="center">
                         <Box>
                             <ThemeProvider theme={titleFontTheme}>
-                                <Typography  variant="h1" component="h1">
+                                <Typography  variant="h2" component="h2">
                                     Red
                                 </Typography>
                             </ThemeProvider>

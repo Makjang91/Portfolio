@@ -128,7 +128,11 @@ function App() {
         </Grid>
 
       </div>
-      
+      <Parallax bgImage={fond_intro} strength={500} >
+        <div className={classes.sectionIntroPicture}>
+
+        </div>
+      </Parallax>
       <div className={classes.section1}>
         <Grid container className={classes.inlineStyle2Title}>
           <Grid item xs={12} >
@@ -188,11 +192,7 @@ function App() {
           </Typography>
         </ThemeProvider>
       </div>
-      <Parallax bgImage={fond_intro} strength={500} >
-        <div className={classes.sectionIntroPicture}>
-
-        </div>
-      </Parallax>
+      
       <div className={classes.sectionProjet}>
         {clientManagementSystme}
       </div>
