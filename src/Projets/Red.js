@@ -100,7 +100,7 @@ class Red extends React.Component{
                             </ThemeProvider>
                         </Box>
                     </Grid>
-                    <Box mt={10}>
+                    <Box mt={10} mb={10}>
                         <Grid container style={{textAlign:"center"}}>
                             <Grid item xs={6}>
                                 <ThemeProvider theme={titleFontTheme}>

@@ -66,6 +66,7 @@ const listCompetences = [
     },
 ]
 
+
 class Competence extends React.Component{
     
     render() {

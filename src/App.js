@@ -5,6 +5,7 @@ import AfficheCompetences from './Marterial-ui/competences';
 import Red from './Projets/Red';
 import ClientManagementSystme from './Projets/ClientManagement_React'
 import Footer from './Marterial-ui/footer';
+import Portfolio from './Projets/Portfolio';
 
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
@@ -15,10 +16,12 @@ import Box from '@material-ui/core/Box';
 import { Parallax } from 'react-parallax';
 
 import photo from './img/photo.jpg';
-import fond_intro from './img/89-1.jpg';
+import fond_intro from './img/3.jpg';
 import fond_first from './img/pexels-jess-bailey-designs-743986.jpg';
 import {Helmet} from "react-helmet";
 import Divider from '@material-ui/core/Divider';
+import { useState, useEffect } from 'react';
+import { useSpring, animated, useTrail } from 'react-spring';
 
 const titleFontTheme = createMuiTheme({
   typography: {
@@ -102,31 +105,71 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
+const FrontText = () => {
+  const classes = useStyles();
+  const props = useSpring({
+    config: { duration: 4000 },
+    opacity: 1,
+    from: { opacity: 0 },
+  })
+  return (
+        <animated.div style={props}>Portfolio de YUN Seunguk</animated.div>
+    );
+};
 
 function App() {
+
+  const [scrolling, setScrolling] = useState(false);
+  const [scrollTop, setScrollTop] = useState(0);
+  const [atFront, setAtFront] = useState(true);
+
+  useEffect(() => {
+    const onScroll = e => {
+      setScrollTop(e.target.documentElement.scrollTop);
+      setScrolling(e.target.documentElement.scrollTop > scrollTop);
+    };
+    window.addEventListener("scroll", onScroll);
+    
+
+    if(scrollTop < 500){
+      setAtFront(true);
+    }
+    else{
+      setAtFront(false);
+    }
+
+    if(atFront){
+
+    }
+
+    console.log(atFront);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [scrollTop]);
+
+
   const classes = useStyles();
 
   const title = "YUN's portfolio";
   const appbar = <Appbar />; // {appbar} into div
   const afficheCompetences = <AfficheCompetences />;
   const red = <Red />;
-  const clientManagementSystme = <ClientManagementSystme />
-  const footer = <Footer />
+  const clientManagementSystme = <ClientManagementSystme />;
+  const footer = <Footer />;
+  const portfolio = <Portfolio />;
 
   return (
     <div className={classes.texts} bgImageAlt={'intro_picture'}>
       <Helmet>
         <title>{ title }</title>
       </Helmet>
-      <div className={classes.frontpage}>
+      <div className={classes.frontpage} id="frontPage">
         <Grid container justify='center' className={classes.inlineStyle1}>
           <ThemeProvider theme={titleFontTheme}>
             <Typography  variant="h2" component="h2" className={classes.titleText}>
-              Portfolio de YUN Seunguk
+              <FrontText key={atFront} />
             </Typography>
           </ThemeProvider>
         </Grid>
-
       </div>
       <Parallax bgImage={fond_intro} strength={500} >
         <div className={classes.sectionIntroPicture}>
@@ -192,7 +235,10 @@ function App() {
           </Typography>
         </ThemeProvider>
       </div>
-      
+      <div className={classes.sectionProjet}>
+        {portfolio}
+      </div>
+      <Divider className={classes.projetDivider}/>
       <div className={classes.sectionProjet}>
         {clientManagementSystme}
       </div>
