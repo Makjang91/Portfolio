@@ -44,16 +44,11 @@ const listTechs = [
     },
     {
         'id': 3,
-        'iconName': SiReact,
-        'name': "React"
-    },
-    {
-        'id': 4,
         'iconName': SiHtml5,
         'name': "HTML",
     },
     {
-        'id': 5,
+        'id': 4,
         'iconName': SiCss3,
         'name': "Css",
     },
